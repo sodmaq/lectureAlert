@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
-import { login } from "../utils/auth"; // Import the login function
+import { login } from "../utils/auth";
+import toast from "react-hot-toast";
 
 const Login = ({ setIsLoggedIn }) => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -23,11 +24,12 @@ const Login = ({ setIsLoggedIn }) => {
         setIsLoggedIn(true);
       }
 
+      toast.success("Login successful!");
+
       // Navigate to dashboard instead of root
       navigate("/dashboard");
     } catch (error) {
-      console.error("Login failed:", error);
-      // Handle login error (you could add error state and display a message)
+      toast.error("Login failed:", error);
     }
   };
 

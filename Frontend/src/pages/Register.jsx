@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [data, setData] = useState({ name: "", email: "", password: "" });
@@ -12,6 +13,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post("/users/register", data);
+    toast.success("Registration successful!");
     navigate("/login");
   };
 
