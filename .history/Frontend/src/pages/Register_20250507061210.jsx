@@ -122,7 +122,7 @@ const Register = () => {
         error.response?.data?.message ||
           "Registration failed. Please try again."
       );
-      toast.error(error.response?.data?.message || "Registration failed.");
+      toast.error("Registration failed. Please try again.");
     } finally {
       setIsLoading(false);
     }

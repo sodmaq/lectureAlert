@@ -253,7 +253,7 @@ const Login = ({ setIsLoggedIn }) => {
           <p className="text-gray-600">
             Don't have an account?{" "}
             <a
-              href="/register"
+              href="#"
               className="font-medium text-blue-600 hover:text-blue-500"
             >
               Sign up
