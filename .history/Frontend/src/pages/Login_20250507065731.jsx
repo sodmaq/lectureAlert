@@ -41,6 +41,8 @@ const Login = ({ setIsLoggedIn }) => {
         navigate("/dashboard");
       }, 500);
     } catch (error) {
+      console.log("Login error data:", error.response.data);
+      console.log("Login error message:", error.response.data.message);
       toast.error(error.response.data.message);
       setError(
         error.response?.data?.message ||

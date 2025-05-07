@@ -41,7 +41,9 @@ const Login = ({ setIsLoggedIn }) => {
         navigate("/dashboard");
       }, 500);
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.log("Login error data:", error.response.data);
+      console.log("Login error message:", error.response.data.message);
+      toast.error("Login error", error);
       setError(
         error.response?.data?.message ||
           "Login failed. Please check your credentials and try again."
