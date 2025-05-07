@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useEffect, useState } from "react";
 import { X, Clock, Calendar, Book, Plus, Save, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
