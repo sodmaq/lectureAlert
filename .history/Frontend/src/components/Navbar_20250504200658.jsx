@@ -1,19 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import { isAuthenticated, logout } from "../utils/auth";
+import { isAuthenticated } from "../utils/auth";
 
-const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+const Navbar = () => {
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-    // Use the logout function instead of directly removing token
-    logout();
-
-    // Update parent component state if the prop is provided
-    if (setIsLoggedIn) {
-      setIsLoggedIn(false);
-    }
-
-    // Navigation is now optional since the routing will handle it
+  const logout = () => {
+    localStorage.removeItem("token");
     navigate("/login");
   };
 
@@ -23,10 +14,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
         LectureAlert
       </Link>
       <div>
-        {/* Use the passed isLoggedIn prop if available, otherwise fall back to isAuthenticated() */}
-        {(isLoggedIn !== undefined ? isLoggedIn : isAuthenticated()) ? (
+        {isAuthenticated() ? (
           <button
-            onClick={handleLogout}
+            onClick={logout}
             className="bg-white text-blue-600 px-4 py-1 rounded"
           >
             Logout

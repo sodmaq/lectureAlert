@@ -1,9 +1,8 @@
 import { useState } from "react";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
-import { login } from "../utils/auth"; // Import the login function
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
@@ -12,23 +11,9 @@ const Login = ({ setIsLoggedIn }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post("/users/login", data);
-
-      // Use the login function instead of directly setting localStorage
-      login(res.data.token);
-
-      // Update parent component state if the prop is provided
-      if (setIsLoggedIn) {
-        setIsLoggedIn(true);
-      }
-
-      // Navigate to dashboard instead of root
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Login failed:", error);
-      // Handle login error (you could add error state and display a message)
-    }
+    const res = await axios.post("/users/login", data);
+    localStorage.setItem("token", res.data.token);
+    navigate("/");
   };
 
   return (

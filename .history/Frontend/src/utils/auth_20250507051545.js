@@ -1,3 +1,5 @@
+// Simplified auth functions with added event dispatching
+
 // Check if user is authenticated
 export const isAuthenticated = () => !!localStorage.getItem("token");
 

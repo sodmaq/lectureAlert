@@ -36,19 +36,18 @@ cron.schedule("* * * * *", async () => {
   const now = new Date();
   const day = now.toLocaleDateString("en-US", { weekday: "long" });
 
-  const formatTime = (date) =>
-    `${date.getHours().toString().padStart(2, "0")}:${date
-      .getMinutes()
-      .toString()
-      .padStart(2, "0")}`;
+  const currentHour = now.getHours().toString().padStart(2, "0");
+  const currentMin = now.getMinutes().toString().padStart(2, "0");
+  const currentTime = `${currentHour}:${currentMin}`;
 
-  const currentTime = formatTime(now);
-
-  const inFiveMin = new Date(now.getTime() + 5 * 60 * 1000);
-  const timeIn5Min = formatTime(inFiveMin);
+  // Time 5 minutes from now
+  const before5 = new Date(now.getTime() + 5 * 60000); // 5 min in ms
+  const alertHour = before5.getHours().toString().padStart(2, "0");
+  const alertMin = before5.getMinutes().toString().padStart(2, "0");
+  const timeIn5Min = `${alertHour}:${alertMin}`;
 
   console.log(
-    `🔍 Checking lectures for ${day} at ${currentTime} and ${timeIn5Min}`
+    `🔍 Checking lectures for ${day} at ${currentTime} (and in 5 mins: ${timeIn5Min})`
   );
 
   const allTimetables = await Timetable.find().populate("user");
@@ -57,18 +56,22 @@ cron.schedule("* * * * *", async () => {
     t.lectures.forEach((lec) => {
       if (lec.day === day) {
         if (lec.time === currentTime) {
-          console.log(`📬 NOW alert: ${lec.subject} to ${t.user.email}`);
           sendEmail(
             t.user.email,
             "📢 Lecture Alert",
             `⏰ You have ${lec.subject} now.`
           );
+          console.log(
+            `📬 Alert sent for ${lec.subject} at ${currentTime} to ${t.user.email}`
+          );
         } else if (lec.time === timeIn5Min) {
-          console.log(`⏳ 5-min alert: ${lec.subject} to ${t.user.email}`);
           sendEmail(
             t.user.email,
             "⏳ Upcoming Lecture",
             `⏳ You have ${lec.subject} in 5 minutes.`
+          );
+          console.log(
+            `⏳ 5-mins-ahead alert sent for ${lec.subject} to ${t.user.email}`
           );
         }
       }
