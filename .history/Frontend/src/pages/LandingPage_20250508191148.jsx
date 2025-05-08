@@ -11,12 +11,7 @@ import {
   Book,
   Smartphone,
 } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 
 function LandingPage() {
   const [email, setEmail] = useState("");

@@ -11,12 +11,7 @@ import {
   Book,
   Smartphone,
 } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 
 function LandingPage() {
   const [email, setEmail] = useState("");
@@ -599,9 +594,6 @@ function LandingPage() {
                       <span className="sr-only">{social}</span>
                       <div className="h-4 w-4 text-white">
                         {social === "facebook" && <FaFacebookF />}
-                        {social === "twitter" && <FaTwitter />}
-                        {social === "instagram" && <FaInstagram />}
-                        {social === "linkedin" && <FaLinkedin />}
                       </div>
                     </a>
                   )

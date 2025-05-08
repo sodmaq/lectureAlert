@@ -11,12 +11,6 @@ import {
   Book,
   Smartphone,
 } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
 
 function LandingPage() {
   const [email, setEmail] = useState("");
@@ -526,7 +520,7 @@ function LandingPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((i) => (
+            {[1, 2, 3, 4, 5].map((i) => (
               <div
                 key={i}
                 className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
@@ -598,10 +592,7 @@ function LandingPage() {
                     >
                       <span className="sr-only">{social}</span>
                       <div className="h-4 w-4 text-white">
-                        {social === "facebook" && <FaFacebookF />}
-                        {social === "twitter" && <FaTwitter />}
-                        {social === "instagram" && <FaInstagram />}
-                        {social === "linkedin" && <FaLinkedin />}
+                        {/* Icon placeholder */}
                       </div>
                     </a>
                   )
