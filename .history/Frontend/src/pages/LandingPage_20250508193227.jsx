@@ -525,21 +525,19 @@ function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {["sample1.png", "sample2.png", "sample3.png", "sample4.png"].map(
-              (img, i) => (
-                <div
-                  key={i}
-                  className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
-                >
-                  <img
-                    src={img}
-                    alt={`App Screenshot ${i}`}
-                    className="rounded-lg w-full h-auto"
-                  />
-                </div>
-              )
-            )}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {["user1.jpg", "user2.jpg", "user3.jpg", "user4.jpg"].map((i) => (
+              <div
+                key={i}
+                className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
+              >
+                <img
+                  src={`user1.jpg`}
+                  alt={`App Screenshot ${i}`}
+                  className="rounded-lg w-full h-auto"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

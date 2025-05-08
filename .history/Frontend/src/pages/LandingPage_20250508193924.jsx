@@ -525,8 +525,8 @@ function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {["sample1.png", "sample2.png", "sample3.png", "sample4.png"].map(
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {["user1.jpg", "sample2.png", "user3.jpg", "user4.jpg"].map(
               (img, i) => (
                 <div
                   key={i}
