@@ -215,7 +215,7 @@ function LandingPage() {
             <div className="relative p-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-300 ease-in-out">
               <div className="bg-white p-4 rounded-lg">
                 <img
-                  src="user1.jpg"
+                  src="hero.jpg"
                   alt=" LectureAlert App Dashboard Preview"
                   className="rounded-lg w-full"
                 />
