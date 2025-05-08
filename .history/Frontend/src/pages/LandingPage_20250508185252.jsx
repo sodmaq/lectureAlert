@@ -11,6 +11,7 @@ import {
   Book,
   Smartphone,
 } from "lucide-react";
+import HowItWorksSection from "../components/HowItWorksSection";
 
 function LandingPage() {
   const [email, setEmail] = useState("");
@@ -69,7 +70,7 @@ function LandingPage() {
   const features = [
     {
       icon: <Calendar className="h-8 w-8 text-blue-600" />,
-      title: "Smart  LectureAlert Management",
+      title: "Smart Timetable Management",
       description:
         "Create and customize your academic schedule with an intuitive drag-and-drop interface",
     },
@@ -98,7 +99,7 @@ function LandingPage() {
       name: "Alex Johnson",
       role: "Computer Science Major",
       quote:
-        " LectureAlert has completely changed how I manage my classes. I haven't missed a single lecture since I started using it!",
+        "TimeTable has completely changed how I manage my classes. I haven't missed a single lecture since I started using it!",
       avatar: "user1.jpg",
       rating: 5,
     },
@@ -106,7 +107,7 @@ function LandingPage() {
       name: "Sarah Chen",
       role: "Pre-Med Student",
       quote:
-        "With my packed schedule,  LectureAlert has been a lifesaver. The reminders keep me on track with all my labs and study groups.",
+        "With my packed schedule, TimeTable has been a lifesaver. The reminders keep me on track with all my labs and study groups.",
       avatar: "user1.jpg",
       rating: 5,
     },
@@ -122,7 +123,7 @@ function LandingPage() {
       name: "Priya Patel",
       role: "Engineering Student",
       quote:
-        " LectureAlert's interface is so intuitive. Managing my complex engineering course load has never been easier!",
+        "TimeTable's interface is so intuitive. Managing my complex engineering course load has never been easier!",
       avatar: "user1.jpg",
       rating: 5,
     },
@@ -153,9 +154,8 @@ function LandingPage() {
             </h1>
 
             <p className="mt-6 text-lg text-slate-600">
-              The smart LectureAlert app designed for students. Create
-              schedules, set reminders, and stay on top of your academic life
-              with ease.
+              The smart timetable app designed for students. Create schedules,
+              set reminders, and stay on top of your academic life with ease.
             </p>
 
             <form
@@ -210,7 +210,7 @@ function LandingPage() {
               <div className="bg-white p-4 rounded-lg">
                 <img
                   src="user1.jpg"
-                  alt=" LectureAlert App Dashboard Preview"
+                  alt="TimeTable App Dashboard Preview"
                   className="rounded-lg w-full"
                 />
               </div>
@@ -444,7 +444,7 @@ function LandingPage() {
 
                 <ul className="space-y-3 mb-8">
                   {[
-                    "Basic  LectureAlert management",
+                    "Basic timetable management",
                     "Class reminders",
                     "Up to 5 courses",
                     "Mobile app access",
@@ -512,7 +512,7 @@ function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900">
-              See LectureAlert in Action
+              See TimeTable in Action
             </h2>
             <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
               Beautiful, intuitive interface designed for students
@@ -575,11 +575,11 @@ function LandingPage() {
               <div className="flex items-center mb-6">
                 <Clock className="h-6 w-6 text-white" />
                 <span className="ml-2 text-xl font-bold text-white">
-                  LectureAlert
+                  TimeTable
                 </span>
               </div>
               <p className="mt-4 text-sm">
-                The smart LectureAlert solution for students who want to stay
+                The smart timetable solution for students who want to stay
                 organized and never miss a class.
               </p>
               <div className="mt-6 flex space-x-4">
@@ -662,8 +662,7 @@ function LandingPage() {
 
           <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
             <p>
-              &copy; {new Date().getFullYear()} LectureAlert. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} TimeTable. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
               <a

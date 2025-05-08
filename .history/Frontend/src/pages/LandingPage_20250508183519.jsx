@@ -69,7 +69,7 @@ function LandingPage() {
   const features = [
     {
       icon: <Calendar className="h-8 w-8 text-blue-600" />,
-      title: "Smart  LectureAlert Management",
+      title: "Smart Timetable Management",
       description:
         "Create and customize your academic schedule with an intuitive drag-and-drop interface",
     },
@@ -93,12 +93,36 @@ function LandingPage() {
     },
   ];
 
+  const steps = [
+    {
+      step: "01",
+      title: "Create Your Schedule",
+      description:
+        "Import your course schedule or build it from scratch with our easy-to-use interface",
+      icon: <Calendar className="h-8 w-8 text-white" />,
+    },
+    {
+      step: "02",
+      title: "Set Up Reminders",
+      description:
+        "Customize when and how you want to be notified about upcoming classes and deadlines",
+      icon: <Bell className="h-8 w-8 text-white" />,
+    },
+    {
+      step: "03",
+      title: "Never Miss a Class",
+      description:
+        "Receive timely alerts and stay on top of your academic responsibilities",
+      icon: <CheckCircle className="h-8 w-8 text-white" />,
+    },
+  ];
+
   const testimonials = [
     {
       name: "Alex Johnson",
       role: "Computer Science Major",
       quote:
-        " LectureAlert has completely changed how I manage my classes. I haven't missed a single lecture since I started using it!",
+        "TimeTable has completely changed how I manage my classes. I haven't missed a single lecture since I started using it!",
       avatar: "user1.jpg",
       rating: 5,
     },
@@ -106,7 +130,7 @@ function LandingPage() {
       name: "Sarah Chen",
       role: "Pre-Med Student",
       quote:
-        "With my packed schedule,  LectureAlert has been a lifesaver. The reminders keep me on track with all my labs and study groups.",
+        "With my packed schedule, TimeTable has been a lifesaver. The reminders keep me on track with all my labs and study groups.",
       avatar: "user1.jpg",
       rating: 5,
     },
@@ -122,7 +146,7 @@ function LandingPage() {
       name: "Priya Patel",
       role: "Engineering Student",
       quote:
-        " LectureAlert's interface is so intuitive. Managing my complex engineering course load has never been easier!",
+        "TimeTable's interface is so intuitive. Managing my complex engineering course load has never been easier!",
       avatar: "user1.jpg",
       rating: 5,
     },
@@ -153,9 +177,8 @@ function LandingPage() {
             </h1>
 
             <p className="mt-6 text-lg text-slate-600">
-              The smart LectureAlert app designed for students. Create
-              schedules, set reminders, and stay on top of your academic life
-              with ease.
+              The smart timetable app designed for students. Create schedules,
+              set reminders, and stay on top of your academic life with ease.
             </p>
 
             <form
@@ -210,7 +233,7 @@ function LandingPage() {
               <div className="bg-white p-4 rounded-lg">
                 <img
                   src="user1.jpg"
-                  alt=" LectureAlert App Dashboard Preview"
+                  alt="TimeTable App Dashboard Preview"
                   className="rounded-lg w-full"
                 />
               </div>
@@ -275,6 +298,61 @@ function LandingPage() {
                   {feature.title}
                 </h3>
                 <p className="text-slate-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* How It Works */}
+      <div id="how-it-works" className="py-24 px-6 bg-slate-900 relative">
+        <div className="absolute inset-0 bg-[url('user1.jpg')] opacity-10 bg-cover bg-center"></div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2
+              className={`text-3xl md:text-4xl font-bold text-white ${
+                isIntersecting.howItWorks ? "animate-slideUp" : "opacity-0"
+              }`}
+            >
+              How It Works
+            </h2>
+            <p
+              className={`mt-4 text-lg text-slate-300 max-w-2xl mx-auto ${
+                isIntersecting.howItWorks ? "animate-slideUp" : "opacity-0"
+              }`}
+              style={{ animationDelay: "0.2s" }}
+            >
+              Get started with TimeTable in three simple steps
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            {steps.map((item, index) => (
+              <div
+                key={index}
+                className={`text-center relative ${
+                  isIntersecting.howItWorks ? "animate-slideUp" : "opacity-0"
+                }`}
+                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+              >
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-12 left-1/2 w-full h-1 bg-blue-500 opacity-30 z-0"></div>
+                )}
+
+                <div className="relative z-10 mb-8">
+                  <div className="inline-flex items-center justify-center h-24 w-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white mb-6 shadow-lg shadow-blue-700/30 transform hover:rotate-12 transition-transform duration-300">
+                    {item.icon}
+                  </div>
+                  <div className="absolute -top-2 -right-2 h-8 w-8 rounded-full bg-white text-blue-600 font-bold flex items-center justify-center shadow">
+                    {item.step}
+                  </div>
+                </div>
+
+                <h3 className="font-semibold text-2xl text-white mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-slate-300 text-lg">{item.description}</p>
               </div>
             ))}
           </div>
@@ -444,7 +522,7 @@ function LandingPage() {
 
                 <ul className="space-y-3 mb-8">
                   {[
-                    "Basic  LectureAlert management",
+                    "Basic timetable management",
                     "Class reminders",
                     "Up to 5 courses",
                     "Mobile app access",
@@ -512,7 +590,7 @@ function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900">
-              See LectureAlert in Action
+              See TimeTable in Action
             </h2>
             <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
               Beautiful, intuitive interface designed for students
@@ -575,11 +653,11 @@ function LandingPage() {
               <div className="flex items-center mb-6">
                 <Clock className="h-6 w-6 text-white" />
                 <span className="ml-2 text-xl font-bold text-white">
-                  LectureAlert
+                  TimeTable
                 </span>
               </div>
               <p className="mt-4 text-sm">
-                The smart LectureAlert solution for students who want to stay
+                The smart timetable solution for students who want to stay
                 organized and never miss a class.
               </p>
               <div className="mt-6 flex space-x-4">
@@ -662,8 +740,7 @@ function LandingPage() {
 
           <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
             <p>
-              &copy; {new Date().getFullYear()} LectureAlert. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} TimeTable. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
               <a
