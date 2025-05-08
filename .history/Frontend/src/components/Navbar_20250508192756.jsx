@@ -17,6 +17,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
     { name: "Home", href: "/" },
     { name: "Dashboard", href: "/dashboard", requiresAuth: true },
     { name: "Calendar", href: "/calendar", requiresAuth: true },
+    { name: "About", href: "/about" },
   ];
 
   const handleLogout = () => {
