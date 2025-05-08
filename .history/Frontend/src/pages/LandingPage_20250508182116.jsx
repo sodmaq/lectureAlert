@@ -305,8 +305,8 @@ function LandingPage() {
       </div>
 
       {/* How It Works */}
-      <div id="how-it-works" className="py-24 px-6 relative">
-        <div className="absolute inset-0 bg-[url('user1.jpg')] opacity-10 bg-cover bg-center"></div>
+      <div id="how-it-works" className="py-24 px-6 bg-slate-900 relative">
+        <div className="absolute inset-0 bg-[url('/api/placeholder/1600/800')] opacity-10 bg-cover bg-center"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -604,7 +604,7 @@ function LandingPage() {
                 className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
               >
                 <img
-                  src={`user1.jpg`}
+                  src={`/api/placeholder/300/600`}
                   alt={`App Screenshot ${i}`}
                   className="rounded-lg w-full h-auto"
                 />

@@ -123,7 +123,7 @@ function LandingPage() {
       role: "Computer Science Major",
       quote:
         "TimeTable has completely changed how I manage my classes. I haven't missed a single lecture since I started using it!",
-      avatar: "user1.jpg",
+      avatar: "/api/placeholder/100/100",
       rating: 5,
     },
     {
@@ -131,7 +131,7 @@ function LandingPage() {
       role: "Pre-Med Student",
       quote:
         "With my packed schedule, TimeTable has been a lifesaver. The reminders keep me on track with all my labs and study groups.",
-      avatar: "user1.jpg",
+      avatar: "/api/placeholder/100/100",
       rating: 5,
     },
     {
@@ -139,7 +139,7 @@ function LandingPage() {
       role: "Business Administration",
       quote:
         "I love how easy it is to adjust my schedule when classes change. The interface is intuitive and the alerts are reliable.",
-      avatar: "user1.jpg",
+      avatar: "/api/placeholder/100/100",
       rating: 4,
     },
     {
@@ -147,7 +147,7 @@ function LandingPage() {
       role: "Engineering Student",
       quote:
         "TimeTable's interface is so intuitive. Managing my complex engineering course load has never been easier!",
-      avatar: "user1.jpg",
+      avatar: "/api/placeholder/100/100",
       rating: 5,
     },
   ];
@@ -232,7 +232,7 @@ function LandingPage() {
             <div className="relative p-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-300 ease-in-out">
               <div className="bg-white p-4 rounded-lg">
                 <img
-                  src="user1.jpg"
+                  src="/api/placeholder/600/400"
                   alt="TimeTable App Dashboard Preview"
                   className="rounded-lg w-full"
                 />
@@ -305,8 +305,8 @@ function LandingPage() {
       </div>
 
       {/* How It Works */}
-      <div id="how-it-works" className="py-24 px-6 relative">
-        <div className="absolute inset-0 bg-[url('user1.jpg')] opacity-10 bg-cover bg-center"></div>
+      <div id="how-it-works" className="py-24 px-6 bg-slate-900 relative">
+        <div className="absolute inset-0 bg-[url('/api/placeholder/1600/800')] opacity-10 bg-cover bg-center"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -604,7 +604,7 @@ function LandingPage() {
                 className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
               >
                 <img
-                  src={`user1.jpg`}
+                  src={`/api/placeholder/300/600`}
                   alt={`App Screenshot ${i}`}
                   className="rounded-lg w-full h-auto"
                 />

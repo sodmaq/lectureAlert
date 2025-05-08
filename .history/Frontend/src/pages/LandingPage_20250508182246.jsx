@@ -305,8 +305,8 @@ function LandingPage() {
       </div>
 
       {/* How It Works */}
-      <div id="how-it-works" className="py-24 px-6 relative">
-        <div className="absolute inset-0 bg-[url('user1.jpg')] opacity-10 bg-cover bg-center"></div>
+      <div id="how-it-works" className="py-24 px-6 bg-slate-900 relative">
+        <div className="absolute inset-0 bg-[url('/api/placeholder/1600/800')] opacity-10 bg-cover bg-center"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -596,7 +596,7 @@ function LandingPage() {
               Beautiful, intuitive interface designed for students
             </p>
           </div>
-
+          {/* 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[1, 2, 3, 4].map((i) => (
               <div
@@ -610,7 +610,7 @@ function LandingPage() {
                 />
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 
