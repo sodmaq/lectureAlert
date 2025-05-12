@@ -16,6 +16,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Dashboard", href: "/dashboard", requiresAuth: true },
+    { name: "Calendar", href: "/calendar", requiresAuth: true },
   ];
 
   const handleLogout = () => {
@@ -90,13 +91,13 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
             {authStatus ? (
               <div className="flex items-center space-x-4">
-                {/* <Link
+                <Link
                   to="/profile"
                   className="flex items-center text-slate-700 hover:text-blue-600"
                 >
                   <User className="h-5 w-5 mr-1" />
                   <span>Profile</span>
-                </Link> */}
+                </Link>
                 <button
                   onClick={handleLogout}
                   className="px-4 py-2 bg-red-500 text-white rounded-md font-medium hover:bg-red-600 transition-colors"
