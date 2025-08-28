@@ -76,7 +76,7 @@ cron.schedule("* * * * *", async () => {
     time: formatTime(new Date(now.getTime() + interval.minutes * 60 * 1000)),
   }));
 
-  console.log(`🔍 Checking lecturess for ${day} at ${currentTime}`);
+  console.log(`🔍 Checking lectures for ${day} at ${currentTime}`);
 
   try {
     const allTimetables = await Timetable.find().populate("user");
