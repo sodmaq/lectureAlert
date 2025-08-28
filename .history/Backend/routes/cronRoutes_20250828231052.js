@@ -1,9 +1,3 @@
-const express = require("express");
-const Timetable = require("../models/Timetable");
-const sendEmail = require("../utils/sendEmail");
-
-const router = express.Router();
-
 // Alternative: More robust timezone handling
 router.get("/run-cron", async (req, res) => {
   // Helper function to get Nigeria time
@@ -111,5 +105,3 @@ router.get("/run-cron", async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
-
-module.exports = router;
