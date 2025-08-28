@@ -39,19 +39,58 @@ router.get("/run-cron", async (req, res) => {
     allTimetables.forEach((timetable) => {
       timetable.lectures.forEach((lecture) => {
         if (lecture.day === day) {
+          // Convert lecture time to minutes for comparison
+          const [lectureHour, lectureMinute] = lecture.time
+            .split(":")
+            .map(Number);
+          const lectureTimeInMinutes = lectureHour * 60 + lectureMinute;
+
+          // Convert current time to minutes
+          const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
+
           // Check each reminder interval
           reminderTimes.forEach((reminder) => {
             if (lecture.time === reminder.time) {
-              const subject = `${reminder.emoji} ${
-                reminder.minutes === 0 ? "Lecture Alert" : "Upcoming Lecture"
-              }`;
-              const message = `${reminder.emoji} You have ${lecture.subject} ${reminder.message}.`;
+              // Calculate how many minutes before the lecture this reminder should be sent
+              const reminderMinutesBeforeLecture = reminder.minutes;
 
-              console.log(
-                `${reminder.emoji} ${reminder.label} alert: ${lecture.subject} to ${timetable.user.email}`
-              );
+              // Calculate when this lecture was likely created (approximate)
+              // If current time + reminder interval = lecture time,
+              // then lecture was created around: current time - (time since creation)
+              const timeUntilLecture =
+                lectureTimeInMinutes - currentTimeInMinutes;
 
-              sendEmail(timetable.user.email, subject, message);
+              // Only send alerts that make sense based on timing
+              // If the alert is for "NOW" (0 minutes), always send it
+              // If the alert is for future (5min, 10min, etc.), only send if enough time has passed
+              // since the lecture could have been created
+
+              if (reminder.minutes === 0) {
+                // Always send "NOW" alert when lecture time arrives
+                const subject = `${reminder.emoji} Lecture Alert`;
+                const message = `${reminder.emoji} You have ${lecture.subject} ${reminder.message}.`;
+
+                console.log(
+                  `${reminder.emoji} ${reminder.label} alert: ${lecture.subject} to ${timetable.user.email}`
+                );
+
+                sendEmail(timetable.user.email, subject, message);
+              } else {
+                // For advance alerts (5min, 10min, 30min, 1hr before)
+                // Only send if we're actually at the right time for this advance notice
+                // This means the lecture is exactly X minutes away
+
+                if (timeUntilLecture === reminderMinutesBeforeLecture) {
+                  const subject = `${reminder.emoji} Upcoming Lecture`;
+                  const message = `${reminder.emoji} You have ${lecture.subject} ${reminder.message}.`;
+
+                  console.log(
+                    `${reminder.emoji} ${reminder.label} alert: ${lecture.subject} to ${timetable.user.email}`
+                  );
+
+                  sendEmail(timetable.user.email, subject, message);
+                }
+              }
             }
           });
         }
