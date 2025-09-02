@@ -315,7 +315,7 @@ const Dashboard = () => {
                       >
                         <div className="flex-1">
                           <div className="flex items-center text-gray-600 mb-1 text-sm">
-                            <Book size={16} className="mr-1.5" /> Course Code
+                            <Book size={16} className="mr-1.5" /> Cource Code
                           </div>
                           <input
                             name="subject"
